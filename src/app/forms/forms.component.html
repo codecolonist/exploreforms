@@ -7,8 +7,8 @@
     <br>
 </div>
 <div class="form-group" >
-<label for="userId">UserId</label>
-  <input ngModel name ="userId"  #userId="ngModel" class="form-control" id="userId" [(ngModel)]="model.userId">
+<label for="username">username</label>
+  <input ngModel name ="username"  #username="ngModel" class="form-control" id="username" [(ngModel)]="model.username">
   <br>
 </div>
 <div class="form-group" >
@@ -17,9 +17,6 @@
    <br>
   <button type ="button" class="btn btn-primary" (click)="addcred(); credstore.reset()">add cred</button>
 
-  <p>
-    {{model | json}}
-  </p>
 </div>
 
 </form>

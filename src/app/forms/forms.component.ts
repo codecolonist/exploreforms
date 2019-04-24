@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { credrepo } from './credrepo';
+import {ApiserviceService} from './../apiservice.service';
 
 @Component({
-  selector: 'app-forms',
+  selector: 'forms',
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiservice:ApiserviceService) { }
 
   credrepolist : credrepo[]=[];
   credrepoobj : credrepo;
@@ -16,14 +17,20 @@ export class FormsComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(x){
-    console.log(x);
-  }
-    model=new credrepo('gulte','gulteud@gulte.com','gultepwd');
+
+    model=new credrepo('gulte','gulteud@gulte.com','gultepwd',new Date(),new Date());
 
   addcred(){
     this.credrepoobj=this.model;
-   this.credrepolist.push(this.credrepoobj);
+    this.apiservice.postcall("addcred",this.credrepoobj).subscribe(
+   
+      resp => {
+      
+        console.log(resp);
+         
+      }
+
+    )
   
    console.log(this.credrepolist);
 
