@@ -2,12 +2,22 @@
   
   <p>welcome to your creds {{lastName}} !!</p>
 
-    <button type="button" 
-            routerLink ="/addform"
-            class="btn btn-primary btn-lg btn-block">Add Creds</button>
-    <button type="button"
-            routerLink ="/listcred" 
-            class="btn btn-primary btn-lg btn-block">List Creds</button>
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink ="addform">Add</a></li>
+          <li class="breadcrumb-item"><a routerLink ="listcred">Creds</a></li>
+        </ol>
+      </nav>
+
+
+
+            <br><br>
+
+            <div class="container">
+
+            <router-outlet></router-outlet>
+            </div>
+          
 
   </div>

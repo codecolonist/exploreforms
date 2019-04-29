@@ -2,6 +2,9 @@
     <br>
   <h3>Login to Credentials App</h3>
   <br>
+  <div [ngClass]="{'alert':true, 'alert-danger':isError}" role="alert">
+      {{message}}
+    </div>
   <form (ngSubmit)="onSubmit()" #loginStore="ngForm">
       <div class="form-group">
           <label for="email">Email</label>
@@ -13,7 +16,7 @@
           <input ngModel name="password" type="password" #password="ngModel" class="form-control" id="password" [(ngModel)]="model.password">
           <br>
       </div>
-      <button  type="button" class="btn btn-primary" (click)="userLogin(); loginStore.reset()" [routerLink] ="['/home']">Login</button>
+      <button  type="button" class="btn btn-primary" (click)="userLogin(); loginStore.reset()">Login</button>
     </form>
   
   </div>

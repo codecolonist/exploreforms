@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
   logreq: logRequest;
    logres: loginResponse;
    isLogin: boolean;
+   message:string;
+   isError=false;
 
   constructor(private apiservice : ApiserviceService,
               private router:Router) { }
@@ -50,14 +52,20 @@ export class LoginComponent implements OnInit {
           this.logres=res;
           console.log(this.logres);
 
-          if(this.logres.serviceMessage="Welcome"){
+          if(this.logres.serviceMessage!="Welcome"){
+            this.isError=true;
+            console.log(this.logres.serviceMessage);
+            this.message=this.logres.serviceMessage;
+          }else if(this.logres.serviceMessage==="Welcome"){
             this.router.navigate(["/home",this.logres.lastName]);
+            
           }
 
            
         },
         err =>{
-          console.log("error");
+          //console.log(this.logres.serviceMessage);
+          this.message=this.logres.serviceMessage;
         }
         
 

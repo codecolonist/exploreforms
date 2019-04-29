@@ -18,9 +18,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 const routes:Routes=[
   {path: "",component:LoginComponent},
+  {path :"home/:lastName",component:HomeComponent,children:[  
   {path :"addform",component:FormsComponent},
   {path :"listcred",component:ListcredsComponent},
-  {path :"home/:lastName",component:HomeComponent}
+  ]}
 
 
 ]
