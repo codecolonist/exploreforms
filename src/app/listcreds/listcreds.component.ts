@@ -10,18 +10,17 @@ import { credrepo } from '../forms/credrepo';
 export class ListcredsComponent implements OnInit {
   
   credrepolist : credrepo[]=[];
-  dataSource:any;
-  
-  displayedColumns: string[] = ['domain', 'username', 'password'];
+  isSpinning=false;
  
   constructor(private apiservice:ApiserviceService) { }
 
   ngOnInit() {
-    this.apiservice.getcall("/allcred").subscribe(
-   
+    this.isSpinning=true;
+    this.apiservice.getcall("credentialsservice/allcred").subscribe(
+      
       resp => {
+        this.isSpinning=false;
        this.credrepolist=resp;
-       this.dataSource = this.credrepolist;
         console.log(this.credrepolist);
       }
 

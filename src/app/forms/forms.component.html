@@ -1,5 +1,8 @@
 
 <div class="container">
+    <div *ngIf ="isMessage" class="alert alert-success" role="alert">
+        {{message}}
+      </div>
 <form (ngSubmit)="onSubmit()" #credstore="ngForm">
 <div class="form-group" >
     <label for="domain">Domain</label>

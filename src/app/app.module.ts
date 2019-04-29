@@ -12,11 +12,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 const routes:Routes=[
-
-  {path :"addform",component:FormsComponent,outlet:"form"},
-  {path :"listcred",component:ListcredsComponent,outlet:"list"}
+  {path: "",component:LoginComponent},
+  {path :"addform",component:FormsComponent},
+  {path :"listcred",component:ListcredsComponent},
+  {path :"home/:lastName",component:HomeComponent}
 
 
 ]
@@ -26,7 +30,9 @@ const routes:Routes=[
   declarations: [
     AppComponent,
     FormsComponent,
-    ListcredsComponent
+    ListcredsComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,8 @@ const routes:Routes=[
     MatToolbarModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    NgbModule,
+    CommonModule,
     RouterModule.forRoot(routes,{
     enableTracing:true
     })

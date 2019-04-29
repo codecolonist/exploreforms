@@ -16,17 +16,20 @@ export class FormsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
+    isMessage=false;
+    message:string;
     model=new credrepo('gulte','gulteud@gulte.com','gultepwd',new Date(),new Date());
 
   addcred(){
     this.credrepoobj=this.model;
-    this.apiservice.postcall("addcred",this.credrepoobj).subscribe(
+    this.apiservice.postcall("credentialsservice/addcred",this.credrepoobj).subscribe(
    
       resp => {
       
+        this.isMessage=true;
+        this.credrepoobj=resp;
         console.log(resp);
+        this.message="credential added for" +this.credrepoobj.username;
          
       }
 
