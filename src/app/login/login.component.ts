@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
    isLogin: boolean;
    message:string;
    isError=false;
+   isSpinning=false;
 
   constructor(private apiservice : ApiserviceService,
               private router:Router) { }
@@ -44,11 +45,11 @@ export class LoginComponent implements OnInit {
     this.logreq=this.model;
 
     console.log(this.logreq);
-
+    this.isSpinning=true;
      this.apiservice.loginpostcall("loginservice/userLogin",this.logreq).subscribe(
 
         res => {
-
+         this.isSpinning=false;
           this.logres=res;
           console.log(this.logres);
 
