@@ -16,7 +16,7 @@ export interface loginres {
 export class ApiserviceService {
   logres:loginres;
   isLoggenIn=false;
-  private Url = "https://vigorous-iguana-9798.dataplicity.io/";
+  private Url = "http://localhost:8080/";
 
   constructor(private http: HttpClient) { }
 
